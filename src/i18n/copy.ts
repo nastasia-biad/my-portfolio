@@ -32,8 +32,14 @@ export type Copy = {
   projectCategory: string
   projectDescription: string
   projectStackLabel: string
-  projectStatus: string
-  projectVisual: string
+  projectDemo: string
+  projectGallery: string
+  projectShots: readonly [
+    { label: string; alt: string; action: string },
+    { label: string; alt: string; action: string },
+    { label: string; alt: string; action: string },
+    { label: string; alt: string; action: string },
+  ]
   aboutKicker: string
   aboutTitle: string
   aboutRole: string
@@ -104,8 +110,30 @@ export const copy: Record<Language, Copy> = {
     projectDescription:
       'A concept website for a cleaning service with a playful HAPPY CHAOS identity. Designed the visual direction, page structure and responsive interface.',
     projectStackLabel: 'Stack',
-    projectStatus: 'No public repository or live version yet.',
-    projectVisual: 'Concept identity, not a screenshot of the interface.',
+    projectDemo: 'Live Demo',
+    projectGallery: 'Nord Clean pages',
+    projectShots: [
+      {
+        label: 'Home',
+        alt: 'Home page of the Nord Clean concept website',
+        action: 'Show the home page',
+      },
+      {
+        label: 'Services',
+        alt: 'Services page of the Nord Clean concept website',
+        action: 'Show the services page',
+      },
+      {
+        label: 'Pricing',
+        alt: 'Pricing page of the Nord Clean concept website',
+        action: 'Show the pricing page',
+      },
+      {
+        label: 'Contact',
+        alt: 'Contact page of the Nord Clean concept website',
+        action: 'Show the contact page',
+      },
+    ],
     aboutKicker: 'Profile',
     aboutTitle: 'About',
     aboutRole: 'Frontend Developer · AI-assisted Development',
@@ -270,8 +298,30 @@ export const copy: Record<Language, Copy> = {
     projectDescription:
       'Концепт сайта клинингового сервиса с ярким характером HAPPY CHAOS. Разработала визуальную концепцию, структуру страниц и адаптивный интерфейс.',
     projectStackLabel: 'Стек',
-    projectStatus: 'Публичного репозитория и живой версии пока нет.',
-    projectVisual: 'Концепт-айдентика, не скриншот интерфейса.',
+    projectDemo: 'Открыть сайт',
+    projectGallery: 'Страницы Nord Clean',
+    projectShots: [
+      {
+        label: 'Главная',
+        alt: 'Главная страница концепта сайта Nord Clean',
+        action: 'Показать главную страницу',
+      },
+      {
+        label: 'Услуги',
+        alt: 'Страница услуг концепта сайта Nord Clean',
+        action: 'Показать страницу услуг',
+      },
+      {
+        label: 'Цены',
+        alt: 'Страница цен концепта сайта Nord Clean',
+        action: 'Показать страницу цен',
+      },
+      {
+        label: 'Контакты',
+        alt: 'Страница контактов концепта сайта Nord Clean',
+        action: 'Показать страницу контактов',
+      },
+    ],
     aboutKicker: 'Профиль',
     aboutTitle: 'Обо мне',
     aboutRole: 'Фронтенд-разработчик · AI-assisted development',

@@ -1,10 +1,53 @@
+import { useState } from 'react'
 import { useLanguage } from '../../i18n/useLanguage.ts'
 import './Projects.css'
 
+const DEMO_URL = 'https://nastasia-biad-happy-chaos-refresh.nastu6ka1703.workers.dev/'
+
 const STACK = ['React', 'TypeScript', 'TanStack Start', 'Tailwind CSS'] as const
+
+const SHOTS = [
+  {
+    id: 'home',
+    src: '/images/projects/nord-clean/nord-clean-home.webp',
+    width: 2082,
+    height: 8394,
+  },
+  {
+    id: 'services',
+    src: '/images/projects/nord-clean/nord-clean-services.webp',
+    width: 2082,
+    height: 5092,
+  },
+  {
+    id: 'pricing',
+    src: '/images/projects/nord-clean/nord-clean-pricing.webp',
+    width: 2082,
+    height: 3162,
+  },
+  {
+    id: 'contact',
+    src: '/images/projects/nord-clean/nord-clean-contact.webp',
+    width: 2082,
+    height: 2652,
+  },
+] as const
 
 export function Projects() {
   const { t } = useLanguage()
+  const [active, setActive] = useState(0)
+  const [previous, setPrevious] = useState<number | null>(null)
+  const current = SHOTS[active]
+  const currentCopy = t.projectShots[active]
+  const previousShot = previous === null ? null : SHOTS[previous]
+  const previousCopy = previous === null ? null : t.projectShots[previous]
+
+  const showShot = (index: number) => {
+    if (index === active) return
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    setPrevious(reduceMotion ? null : active)
+    setActive(index)
+  }
 
   return (
     <section id="projects" className="projects" aria-labelledby="projects-title" tabIndex={-1}>
@@ -34,27 +77,62 @@ export function Projects() {
               <li key={item}>{item}</li>
             ))}
           </ul>
-          <p className="project__status">{t.projectStatus}</p>
+          <a
+            className="project__demo"
+            href={DEMO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${t.projectDemo}. ${t.contactNewTab}`}
+          >
+            {t.projectDemo}
+          </a>
         </div>
 
         <figure className="project__figure">
-          <div className="project__poster" aria-hidden="true">
-            <div className="project__sheet">
-              <p className="project__poster-index">01</p>
-              <p className="project__stamp">Happy chaos</p>
-              <div className="project__bars">
-                <span />
-                <span />
-                <span />
-              </div>
-              <span className="project__ring" />
-              <p className="project__poster-name">
-                Nord
-                <span>Clean</span>
-              </p>
-            </div>
+          <div className="project__stage">
+            {previousShot && previousCopy ? (
+              <img
+                className="project__shot"
+                src={previousShot.src}
+                alt=""
+                width={previousShot.width}
+                height={previousShot.height}
+              />
+            ) : null}
+            <img
+              key={current.id}
+              className={previousShot ? 'project__shot project__shot--enter' : 'project__shot'}
+              src={current.src}
+              alt={currentCopy.alt}
+              width={current.width}
+              height={current.height}
+              onAnimationEnd={() => setPrevious(null)}
+            />
           </div>
-          <figcaption className="project__caption">{t.projectVisual}</figcaption>
+          <div className="project__thumbs" role="group" aria-label={t.projectGallery}>
+            {SHOTS.map((shot, index) => {
+              const copy = t.projectShots[index]
+              const selected = index === active
+              return (
+                <button
+                  key={shot.id}
+                  type="button"
+                  className="project__thumb"
+                  aria-pressed={selected}
+                  aria-label={copy.action}
+                  onClick={() => showShot(index)}
+                >
+                  <img
+                    src={shot.src}
+                    alt={copy.alt}
+                    width={shot.width}
+                    height={shot.height}
+                  />
+                </button>
+              )
+            })}
+          </div>
+          <figcaption className="project__caption">{currentCopy.label}</figcaption>
         </figure>
       </article>
 
