@@ -40,6 +40,24 @@ export type Copy = {
     { label: string; alt: string; action: string },
     { label: string; alt: string; action: string },
   ]
+  formaCategory: string
+  formaDescription: string
+  formaAboutTitle: string
+  formaAbout: string
+  formaGoalsTitle: string
+  formaGoals: readonly string[]
+  formaRoleTitle: string
+  formaRole: string
+  formaFeaturesTitle: string
+  formaFeatures: readonly string[]
+  formaGallery: string
+  formaShots: readonly [
+    { label: string; alt: string; action: string },
+    { label: string; alt: string; action: string },
+    { label: string; alt: string; action: string },
+    { label: string; alt: string; action: string },
+    { label: string; alt: string; action: string },
+  ]
   aboutKicker: string
   aboutTitle: string
   aboutRole: string
@@ -132,6 +150,59 @@ export const copy: Record<Language, Copy> = {
         label: 'Contact',
         alt: 'Contact page of the Nord Clean concept website',
         action: 'Show the contact page',
+      },
+    ],
+    formaCategory: 'E-commerce / Online store',
+    formaDescription:
+      'A modern online store focused on visual product presentation, comfortable navigation and a clear path through the catalog.',
+    formaAboutTitle: 'About the project',
+    formaAbout:
+      'FORMA is a concept store for furniture and objects for the home. The interface keeps the product in front: large photographs, a catalog that can be narrowed, and a product page that continues into the cart. Checkout saves a demo order in the browser and does not take a real payment.',
+    formaGoalsTitle: 'Goals and tasks',
+    formaGoals: [
+      'Keep the product visually in front',
+      'Make the catalog easy to narrow by section, material, color and price',
+      'Build a clear path from a product to favorites, the cart and a demo order',
+    ],
+    formaRoleTitle: 'My role',
+    formaRole:
+      'I designed and built the interface: pages, catalog, cart, favorites and checkout.',
+    formaFeaturesTitle: 'Implemented functionality',
+    formaFeatures: [
+      'Home with store sections, new arrivals and popular products',
+      'Catalog filters: section, subcategory, material, color, price, new arrivals and bestsellers',
+      'Product page with photographs, material, size, quantity, favorites, related products and add to cart',
+      'Cart and favorites saved in the browser',
+      'Checkout with a delivery choice and a payment choice; the order is stored locally, without charging a card',
+      'Order history in the same browser',
+      'Journal, about the store, and pages for delivery, payment, returns, contacts and questions',
+    ],
+    formaGallery: 'FORMA pages',
+    formaShots: [
+      {
+        label: 'Home',
+        alt: 'Home page of the FORMA concept store',
+        action: 'Show the home page',
+      },
+      {
+        label: 'Catalog',
+        alt: 'Catalog page of the FORMA concept store',
+        action: 'Show the catalog',
+      },
+      {
+        label: 'Product',
+        alt: 'Product page of the FORMA concept store',
+        action: 'Show the product page',
+      },
+      {
+        label: 'Journal',
+        alt: 'Journal page of the FORMA concept store',
+        action: 'Show the journal',
+      },
+      {
+        label: 'About',
+        alt: 'About page of the FORMA concept store',
+        action: 'Show the about page',
       },
     ],
     aboutKicker: 'Profile',
@@ -320,6 +391,59 @@ export const copy: Record<Language, Copy> = {
         label: 'Контакты',
         alt: 'Страница контактов концепта сайта Nord Clean',
         action: 'Показать страницу контактов',
+      },
+    ],
+    formaCategory: 'Интернет-магазин',
+    formaDescription:
+      'Современный интернет-магазин с акцентом на визуальную подачу товаров, удобную навигацию и понятный путь по каталогу.',
+    formaAboutTitle: 'О проекте',
+    formaAbout:
+      'FORMA — концепт магазина мебели и предметов для дома. Интерфейс собран так, чтобы товар оставался главным: крупные фотографии, каталог, который можно сузить, и карточка товара, из которой человек переходит в корзину. Оформление сохраняет демонстрационный заказ в браузере и не проводит настоящую оплату.',
+    formaGoalsTitle: 'Цели и задачи',
+    formaGoals: [
+      'Оставить товар визуально главным',
+      'Сделать каталог, который легко сузить по разделу, материалу, цвету и цене',
+      'Собрать понятный путь от товара к избранному, корзине и демонстрационному заказу',
+    ],
+    formaRoleTitle: 'Моя роль',
+    formaRole:
+      'Спроектировала и собрала интерфейс: страницы, каталог, корзину, избранное и оформление заказа.',
+    formaFeaturesTitle: 'Реализованный функционал',
+    formaFeatures: [
+      'Главная с разделами магазина, новинками и популярными товарами',
+      'Фильтры каталога: раздел, подкатегория, материал, цвет, цена, новинки и бестселлеры',
+      'Карточка товара: фотографии, материал, размер, количество, избранное, похожие товары и добавление в корзину',
+      'Корзина и избранное сохраняются в браузере',
+      'Оформление заказа с выбором доставки и способа оплаты; заказ сохраняется локально, без списания денег',
+      'История заказов в том же браузере',
+      'Журнал, страница о магазине, а также доставка, оплата, возврат, контакты и вопросы',
+    ],
+    formaGallery: 'Страницы FORMA',
+    formaShots: [
+      {
+        label: 'Главная',
+        alt: 'Главная страница концепта магазина FORMA',
+        action: 'Показать главную страницу',
+      },
+      {
+        label: 'Каталог',
+        alt: 'Страница каталога концепта магазина FORMA',
+        action: 'Показать каталог',
+      },
+      {
+        label: 'Товар',
+        alt: 'Карточка товара концепта магазина FORMA',
+        action: 'Показать карточку товара',
+      },
+      {
+        label: 'Журнал',
+        alt: 'Страница журнала концепта магазина FORMA',
+        action: 'Показать журнал',
+      },
+      {
+        label: 'О магазине',
+        alt: 'Страница о магазине концепта FORMA',
+        action: 'Показать страницу о магазине',
       },
     ],
     aboutKicker: 'Профиль',
